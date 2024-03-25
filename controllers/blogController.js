@@ -88,3 +88,5 @@ const updateBlog = async (req, res) => {
       .json({ message: "Unable to update ! Please try agin" });
   }
 };
+
+module.exports = {fetchAllBlog, addNewBlog, deleteBlog, updateBlog}
