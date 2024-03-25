@@ -64,3 +64,27 @@ const deleteBlog = async (req, res) => {
   }
 };
 // update a blog
+const updateBlog = async (req, res) => {
+  const id = req.params.id;
+
+  const { title, description } = req.body;
+  let currentBlogToUpdate;
+
+  try {
+    currentBlogToUpdate = await Blog.findByIdAndUpdate(id, {
+      title,
+      description,
+    });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Unable to update ! Please try again" });
+  }
+
+  if (!currentBlogToUpdate) {
+    return res
+      .status(500)
+      .json({ message: "Unable to update ! Please try agin" });
+  }
+};
