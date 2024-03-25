@@ -60,7 +60,7 @@ const deleteBlog = async (req, res) => {
     console.error(error);
     return res
       .status(500)
-      .json({ message: "Unable to delete ! Please try agin" });
+      .json({ message: "Unable to delete ! Please try again" });
   }
 };
 // update a blog
