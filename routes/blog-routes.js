@@ -1,17 +1,16 @@
-import express from "express";
-
+const express = require("express");
 const blogRouter = express.Router();
 
 const {
-  fetchAllBlog,
+  fetchListOfBlogs,
   addNewBlog,
-  deleteBlog,
-  updateBlog,
+  updateABlog,
+  deleteABlog,
 } = require("../controllers/blogController");
 
-blogRouter.get("/", fetchAllBlog);
+blogRouter.get("/", fetchListOfBlogs);
 blogRouter.post("/add", addNewBlog);
-blogRouter.put("/update/:id", updateBlog);
-blogRouter.delete("/delete/:id", deleteBlog);
+blogRouter.put("/update/:id", updateABlog);
+blogRouter.delete("/delete/:id", deleteABlog);
 
 module.exports = blogRouter;
